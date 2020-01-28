@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Ballarat Application</string>
+
+
+    <string name="facebook_app_id">523204064981693</string>
+    <string name="fb_login_protocol_scheme">fb523204064981693</string>
+
+    <string-array name="nav_item_activity_titles">
+        <item>NDIS</item>
+        <!--<item>Blogs</item>-->
+        <item>Prices</item>
+        <item>About Us</item>
+        <item>Log Out</item>
+
+    </string-array>
+
+
+    <string-array name="nav_item_activity_titles_admin">
+        <item>Orders</item>
+        <item>User</item>
+        <item>About Us</item>
+        <item>LogOut</item>
+    </string-array>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_home">NDIS</string>
+    <string name="nav_photos">Blogs</string>
+    <string name="nav_movies">Prices</string>
+    <string name="nav_about_us">About Us</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

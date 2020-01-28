@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin_Module.DetailsActivity">
+
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo" />
+
+    <Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#0f75bc"
+        android:layout_marginBottom="10dp">
+
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imageViewf"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="28dp"-->
+            <!--android:layout_marginBottom="20dp"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:src="@drawable/xa" />-->
+
+
+        <TextView
+            android:id="@+id/m1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mons"
+            android:text="Details"
+            android:textColor="#ffffff"
+            android:layout_gravity="center"
+            android:paddingTop="5dp"
+            android:textSize="22dp" />
+
+    </Toolbar>
+
+
+    <TextView
+        android:id="@+id/m2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mons"
+        android:text="Mark Wilson"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:paddingTop="5dp"
+        android:textSize="22dp" />
+
+
+    <View
+        android:id="@+id/mkj"
+        android:layout_width="fill_parent"
+        android:layout_height="3px"
+        android:layout_below="@id/m2"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/darker_gray" />
+
+
+
+    <TextView
+        android:id="@+id/m3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mons"
+        android:text="Email :"
+        android:layout_below="@id/mkj"
+        android:layout_margin="20dp"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:textSize="22dp" />
+
+
+    <TextView
+        android:id="@+id/m4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratregular"
+        android:text="mark@gmail.com"
+        android:layout_toRightOf="@id/m3"
+        android:layout_below="@id/mkj"
+        android:paddingTop="25dp"
+        android:textColor="#000000"
+        android:textSize="17dp" />
+
+
+    <View
+        android:id="@+id/mkj2"
+        android:layout_width="fill_parent"
+        android:layout_height="3px"
+        android:layout_below="@id/m3"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/m33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mons"
+        android:text="Contact No :"
+        android:layout_below="@id/mkj2"
+        android:layout_margin="20dp"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:textSize="22dp" />
+
+
+    <TextView
+        android:id="@+id/m44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratregular"
+        android:text="123-456-789"
+        android:layout_toRightOf="@id/m33"
+        android:layout_below="@id/mkj2"
+        android:paddingTop="25dp"
+        android:textColor="#000000"
+        android:textSize="17dp" />
+
+
+    <View
+        android:id="@+id/mkj22"
+        android:layout_width="fill_parent"
+        android:layout_height="3px"
+        android:layout_below="@id/m33"
+        android:background="@android:color/darker_gray" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/m333"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mons"
+        android:text="Address :"
+        android:layout_below="@id/mkj22"
+        android:layout_margin="20dp"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:textSize="22dp" />
+
+
+    <TextView
+        android:id="@+id/m444"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratregular"
+        android:text="10 Frater Court"
+android:maxLength="20"
+        android:layout_toRightOf="@id/m333"
+        android:layout_below="@id/mkj22"
+        android:textColor="#000000"
+        android:layout_marginTop="25dp"
+        android:textSize="17dp" />
+
+
+
+
+    <View
+        android:id="@+id/mkj222"
+        android:layout_width="fill_parent"
+        android:layout_height="3px"
+        android:layout_below="@id/m333"
+        android:background="@android:color/darker_gray" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/m3333"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mons"
+        android:text="Paymint :"
+        android:layout_below="@id/mkj222"
+        android:layout_margin="20dp"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:textSize="22dp" />
+
+
+    <TextView
+        android:id="@+id/m4444"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratregular"
+        android:text="Paid"
+        android:layout_toRightOf="@id/m3333"
+        android:layout_below="@id/mkj222"
+        android:paddingTop="25dp"
+        android:textColor="#000000"
+        android:textSize="17dp" />
+
+
+    <View
+        android:id="@+id/mkj2222"
+        android:layout_width="fill_parent"
+        android:layout_height="3px"
+        android:layout_below="@id/m3333"
+        android:background="@android:color/darker_gray" />
+
+</RelativeLayout>

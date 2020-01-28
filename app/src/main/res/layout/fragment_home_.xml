@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+android:padding="30dp"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/what_does_nds_provide"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:background="@drawable/nj"
+            android:textAllCaps="false"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/mons"
+            android:text="What Does The NDIS Provide?"
+            android:textColor="#ffffff"
+            android:textSize="16dp"
+            android:layout_centerHorizontal="true"
+            />
+
+
+        <Button
+            android:id="@+id/ndis_database"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:background="@drawable/nj"
+            android:fontFamily="@font/mons"
+            android:text="NDIS Database?"
+            android:textColor="#ffffff"
+            android:textSize="16dp"
+            android:textAllCaps="false"
+            android:layout_marginBottom="25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/what_does_nds_provide"
+            />
+
+
+
+        <Button
+            android:id="@+id/searchButton3"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:background="@drawable/nj"
+            android:textAllCaps="false"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/mons"
+            android:text="Ballarat"
+            android:textColor="#ffffff"
+            android:textSize="16dp"
+            android:layout_below="@id/ndis_database"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/searchButton3"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/za" />
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background_about"
+    android:layout_height="match_parent"
+    >
+
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ABOUT US"
+        android:fontFamily="@font/mons"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+
+
+
+
+        android:textColor="#ed1c24"
+        android:textSize="25dp" />
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HISTORY OF THE NAME BALLARAT"
+        android:fontFamily="@font/mons"
+        android:layout_below="@id/text1"
+        android:textAlignment="center"
+        android:id="@+id/text2"
+
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"
+        android:textSize="18dp" />
+
+
+    <View
+        android:id="@+id/test3344"
+        android:layout_width="70dp"
+        android:layout_below="@id/text2"
+        android:layout_centerHorizontal="true"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+
+
+    <TextView
+        android:id="@+id/calculate_btn22"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/test3344"
+        android:fontFamily="@font/latonormal"
+        android:lineSpacingMultiplier="1.0"
+        android:justificationMode="inter_word"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:textColor="#000000"
+        android:text="Ballarat is the third largest city in Victoria Australia. Archibald Yuille named the area “Ballaarat” Some claim the name is derived from a local Wathaurong Aboriginal word for the area, balla arat. The meaning of this word is not certain; however, several translations have been made and it is generally thought to mean “resting place”. https://en.wikipedia.org/wiki/Ballarat"
+
+        android:textSize="19dp" />
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BALLARAT- RESTING PLACE"
+        android:fontFamily="@font/mons"
+        android:layout_below="@id/calculate_btn22"
+        android:textAlignment="center"
+        android:id="@+id/text24"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="#000000"
+        android:textSize="18dp" />
+
+
+
+    <View
+        android:id="@+id/test3"
+        android:layout_width="70dp"
+        android:layout_below="@id/calculate_btn22"
+        android:layout_centerHorizontal="true"
+        android:layout_height="1dp"
+        android:layout_marginTop="57dp"
+        android:background="@android:color/black" />
+
+
+
+
+    <TextView
+        android:id="@+id/calculate_btn23"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/test3"
+        android:fontFamily="@font/latonormal"
+        android:lineSpacingMultiplier="1.0"
+        android:justificationMode="inter_word"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:textColor="#000000"
+        android:text="This is the name used to describe the place where the service Dual Diagnosis Australia rests. The initial service commenced operation in 2008 using the name Rod Soar and following a slow progression and the gaining of a strong supporter base and references the various arms of this organisation commenced to evolve."
+
+        android:textSize="19dp" />
+
+
+
+</RelativeLayout>
