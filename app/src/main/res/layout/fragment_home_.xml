@@ -23,6 +23,7 @@ android:padding="30dp"
             android:text="What Does The NDIS Provide?"
             android:textColor="#ffffff"
             android:textSize="16dp"
+
             android:layout_centerHorizontal="true"
             />
 

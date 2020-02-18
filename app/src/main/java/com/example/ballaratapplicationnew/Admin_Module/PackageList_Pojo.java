@@ -37,6 +37,4 @@ public class PackageList_Pojo {
     {
         this.pkg_image = pkg_image;
     }
-
-
 }

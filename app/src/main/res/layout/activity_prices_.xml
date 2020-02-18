@@ -12,7 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="98dp"
+        android:layout_marginTop="68dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo" />
 
@@ -20,7 +20,7 @@
     <RelativeLayout
         android:id="@+id/mk"
         android:layout_width="350dp"
-        android:layout_height="60dp"
+        android:layout_height="65dp"
         android:background="@drawable/two"
         android:layout_below="@id/imageView"
         android:layout_marginTop="30dp"
@@ -45,11 +45,11 @@ android:layout_marginTop="-5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserratregular"
-            android:text="Private Counselling"
+            android:text="Private Mental Health Nursing Care"
             android:textColor="#000000"
-            android:maxLength="20"
             android:layout_toRightOf="@id/profile_image"
-            android:paddingTop="5dp"
+            android:paddingTop="4dp"
+            android:paddingStart="0dp"
              android:textStyle="bold"
              android:textSize="18dp" />
 
@@ -98,6 +98,7 @@ android:layout_marginTop="-5dp"
 
 
     <CheckBox
+        android:id="@+id/paypal_check_box"
         android:layout_width="wrap_content"
         android:checked="false"
         android:layout_marginTop="32dp"
@@ -127,6 +128,7 @@ android:layout_marginTop="-5dp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:paddingLeft="10dp"
+        android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
         android:paddingTop="12dp">
@@ -146,69 +148,15 @@ android:layout_marginTop="-5dp"
 
     </RelativeLayout>
 
-    <!--<EditText-->
-        <!--android:id="@+id/nameText"-->
-        <!--android:layout_width="350dp"-->
-        <!--android:layout_marginLeft="10dp"-->
-        <!--android:background="@drawable/two"-->
-        <!--android:inputType="textPersonName"-->
-        <!--android:layout_marginTop="30dp"-->
-        <!--android:fontFamily="@font/montserratregular"-->
-        <!--android:paddingLeft="10dp"-->
-
-        <!--android:text="Private Counselling"-->
-        <!--android:textStyle="bold"-->
-        <!--android:layout_below="@id/imageView"-->
-        <!--android:textColorHint="#000000"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_height="60dp" />-->
 
 
-
-
-    <!--<com.mikhaellopez.circularimageview.CircularImageView-->
-        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-        <!--android:id="@+id/profile_image"-->
-        <!--android:layout_width="96dp"-->
-        <!--android:layout_height="96dp"-->
-        <!--android:src="@drawable/two"-->
-        <!--app:civ_border_width="2dp"-->
-        <!--app:civ_border_color="#FF000000"/>-->
-
-    <!--<EditText-->
-        <!--android:id="@+id/nameText2"-->
-        <!--android:layout_width="350dp"-->
-        <!--android:background="@drawable/three"-->
-        <!--android:layout_marginTop="30dp"-->
-        <!--android:fontFamily="@font/montserratregular"-->
-        <!--android:text="TOTAL : $100.00"-->
-        <!--android:layout_below="@id/nameText"-->
-        <!--android:paddingTop="15dp"-->
-        <!--android:textStyle="bold"-->
-        <!--android:textSize="18dp"-->
-
-
-        <!--android:gravity="right"-->
-
-        <!--android:paddingRight="20dp"-->
-
-
-
-        <!--android:textColorHint="#000000"-->
-        <!--android:layout_marginBottom="40dp"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_height="50dp"-->
-         <!--/>-->
-
-
-
-
-
-
-
-
-
-
-
+    <TextView
+        android:id="@+id/multicolorline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Terms &amp; Conditions"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/mk4" />
 
 </RelativeLayout>

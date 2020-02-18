@@ -32,6 +32,8 @@ import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class HomeActivity extends AppCompatActivity {
 
     Button searchButton,searchButton2;
@@ -152,7 +154,7 @@ SharedPreferences sharedPreferences;
 
                     case R.id.logout_user:
                     new SmartDialogBuilder(HomeActivity.this)
-                            .setTitle("Error Message")
+                            .setTitle("Logout")
                             .setSubTitle("Do You Want To Logout")
                             .setCancalable(true)
                             .setTitleFont(face)

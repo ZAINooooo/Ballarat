@@ -7,11 +7,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -48,9 +51,11 @@ public class Prices_Activity extends BaseActivity {
     private static PayPalConfiguration config = new PayPalConfiguration() .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX).clientId(PayPalConfig.PAYPAL_CLIENT_ID);
 SharedPreferences sharedPreferences;
 String user_id;
-
+CheckBox paypal_check_box;
 TextView m3,mh , m1;
 ImageView profile_image;
+boolean isCheckede=false;
+TextView multicolorline2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +76,30 @@ ImageView profile_image;
         m3 = findViewById(R.id.m2);
         mh = findViewById(R.id.mh);
 
+        multicolorline2= findViewById(R.id.multicolorline2);
+        paypal_check_box= findViewById(R.id.paypal_check_box);
         m1 = findViewById(R.id.m1);
         profile_image = findViewById(R.id.profile_image);
 
-        m1.setText(pkg_name);
+
+        String parsedStr = pkg_name.replaceAll("(.{21})", "$1\n");
+        String parsedStr22 = parsedStr.replace("\n ", "\n");
+        m1.setText(parsedStr22);
+
+
+
+//        if (pkg_name.length() >21)
+//        {
+//            Toast.makeText(context, "More then 21", Toast.LENGTH_SHORT).show();
+//
+//        }
+//
+//        else
+//        {
+//            Toast.makeText(context, "Less then 21", Toast.LENGTH_SHORT).show();
+//
+//        }
+//        m1.setText(pkg_name);
         Glide.with(Prices_Activity.this).load(pkg_image).into(profile_image);
 
         Window window = this.getWindow();
@@ -88,9 +113,67 @@ ImageView profile_image;
 
 
 
-        Intent intent = new Intent(this, PayPalService.class);
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-        startService(intent);
+        if (paypal_check_box.isChecked())
+        {
+            Intent intent = new Intent(this, PayPalService.class);
+            intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+            startService(intent);
+        }
+
+//        else
+//        {
+//            SweetAlertDialog pDialog = new SweetAlertDialog(Prices_Activity.this, SweetAlertDialog.ERROR_TYPE);
+//            pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+//            pDialog.setTitleText("Select Terms Conditions First");
+//            pDialog.setCancelable(true);
+//            pDialog.show();
+//            return;
+//        }
+
+
+
+        multicolorline2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/us/webapps/mpp/ua/useragreement-full"));
+            startActivity(browserIntent);
+
+            }
+        });
+
+
+//        if (paypal_check_box.isChecked())
+//        {
+//            Toast.makeText(context, "Its Clicked..!!", Toast.LENGTH_SHORT).show();
+//
+//        }
+//
+//        else
+//        {
+//            Toast.makeText(context, "Its Not Clicked..!!", Toast.LENGTH_SHORT).show();
+//        }
+
+
+        paypal_check_box.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (isChecked)
+                {
+//                    Toast.makeText(context, "Its Clicked..!!", Toast.LENGTH_SHORT).show();
+//                    isCheckede=true;
+                }
+
+                else
+                {
+//                    Toast.makeText(context, "Its not..!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
 
         mk4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,16 +210,30 @@ ImageView profile_image;
     //use
     private void submitpayment() {
         //Creating a paypalpayment
-        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(total_price)), "USD", "Ballarat Application", PayPalPayment.PAYMENT_INTENT_SALE);
-        //Creating Paypal Payment activity intent
-        Intent intent = new Intent(this, PaymentActivity.class);
-        //putting the paypal configuration to the intent
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-        //Puting paypal payment to the intent
-        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
-        //Starting the intent activity for result
-        //the request code will be used on the method onActivityResult
-        startActivityForResult(intent, PAYPAL_REQUEST_CODE);
+
+        if (paypal_check_box.isChecked())
+        {
+            PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(total_price)), "USD", "Ballarat Application", PayPalPayment.PAYMENT_INTENT_SALE);
+            //Creating Paypal Payment activity intent
+            Intent intent = new Intent(this, PaymentActivity.class);
+            //putting the paypal configuration to the intent
+            intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+            //Puting paypal payment to the intent
+            intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+            //Starting the intent activity for result
+            //the request code will be used on the method onActivityResult
+            startActivityForResult(intent, PAYPAL_REQUEST_CODE);
+        }
+
+        else
+        {
+            SweetAlertDialog pDialog = new SweetAlertDialog(Prices_Activity.this, SweetAlertDialog.ERROR_TYPE);
+            pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+            pDialog.setTitleText("Select Terms Conditions First");
+            pDialog.setCancelable(true);
+            pDialog.show();
+            return;
+        }
     }
 
 
@@ -158,18 +255,33 @@ ImageView profile_image;
                 //if confirmation is not null
                 if (confirm != null) {
                     try {
-                        //Getting the payment details
-                        String paymentDetails = confirm.toJSONObject().toString(4);
-                        Log.i("paymentExample", paymentDetails);
 
-                        Intent intent = new Intent(this, ConfirmationActivity.class);
-                        intent.putExtra("PaymentDetails", paymentDetails);
-                        intent.putExtra("user_id", user_id);
-                        intent.putExtra("package_id", pkg_ids);
-                        intent.putExtra("PaymentAmount", total_price);
-                        startActivity(intent);
+                        if (paypal_check_box.isChecked())
+                        {
+                            //Getting the payment details
+                            String paymentDetails = confirm.toJSONObject().toString(4);
+                            Log.i("paymentExample", paymentDetails);
+
+                            Intent intent = new Intent(this, ConfirmationActivity.class);
+                            intent.putExtra("PaymentDetails", paymentDetails);
+                            intent.putExtra("user_id", user_id);
+                            intent.putExtra("package_id", pkg_ids);
+                            intent.putExtra("PaymentAmount", total_price);
+                            startActivity(intent);
 
 //                        Toast.makeText(this, "Hereee..!!", Toast.LENGTH_SHORT).show();
+                        }
+
+                        else
+                        {
+                            SweetAlertDialog pDialog = new SweetAlertDialog(Prices_Activity.this, SweetAlertDialog.ERROR_TYPE);
+                            pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+                            pDialog.setTitleText("Select Terms Conditions First");
+                            pDialog.setCancelable(true);
+                            pDialog.show();
+                            return;
+                        }
+
                     }
 
                     catch (JSONException e)

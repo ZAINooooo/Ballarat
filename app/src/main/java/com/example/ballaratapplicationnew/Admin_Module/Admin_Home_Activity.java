@@ -151,7 +151,7 @@ public class Admin_Home_Activity extends AppCompatActivity {
                     case R.id.logout:
 
                         new SmartDialogBuilder(Admin_Home_Activity.this)
-                                .setTitle("Error Message")
+                                .setTitle("Logout")
                                 .setSubTitle("Do You Want To Logout")
                                 .setCancalable(true)
                                 .setTitleFont(face)

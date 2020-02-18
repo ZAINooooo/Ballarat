@@ -4,6 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.Editable;
+import android.text.Html;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +25,7 @@ import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemArrayAdapter extends RecyclerView.Adapter<FlowerViewHolder> {
-
+    private boolean isReached = false;
  Context mContext;
 private List<PriceList_Pojo> mFlowerList;
 
@@ -41,8 +44,16 @@ public FlowerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 public void onBindViewHolder(final FlowerViewHolder holder, final int position) {
 
 
-        holder.price_name.setText(mFlowerList.get(position).getPkg_name());
-        holder.item_price.setText(mFlowerList.get(position).getPkg_price());
+
+    String parsedStr2 = (mFlowerList.get(position).getPkg_name().replaceAll("(.{21})", "$1\n"));
+    String parsedStr22 = parsedStr2.replace("\n ", "\n");
+    holder.price_name.setText(parsedStr22);
+    
+
+//    holder.price_name.setText(mFlowerList.get(position).getPkg_name());
+
+
+        holder.item_price.setText(Html.fromHtml("$"+""+mFlowerList.get(position).getPkg_price()));
         Picasso.get().load(mFlowerList.get(position).getPkg_image()).noFade().into(holder.profile_image);
 //    Glide.with(mContext).load(mFlowerList.get(position).getPkg_image()).into(holder.profile_image);
 
@@ -54,13 +65,12 @@ public void onBindViewHolder(final FlowerViewHolder holder, final int position) 
 
                 if( mFlowerList.get(position).getPkg_price().equals("0.00"))
                 {
-
-
                     Intent i = new Intent(Intent.ACTION_SEND);
                     i.setType("text/plain");
                     i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"tariq.riaz@eitsec.co.uk"});
                     i.putExtra(Intent.EXTRA_SUBJECT, "Ballarat Application");
                     i.putExtra(Intent.EXTRA_TEXT   , "Enter Any Text");
+
                     try {
                         mContext.startActivity(Intent.createChooser(i, "Send mail..."));
                     } catch (android.content.ActivityNotFoundException ex) {

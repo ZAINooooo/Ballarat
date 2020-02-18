@@ -15,6 +15,10 @@
     </string-array>
 
 
+
+    <string name="value">Private Mental Health \nNursing Care</string>
+
+
     <string-array name="nav_item_activity_titles_admin">
         <item>Orders</item>
         <item>User</item>

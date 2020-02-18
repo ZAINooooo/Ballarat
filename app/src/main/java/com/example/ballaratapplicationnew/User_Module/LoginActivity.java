@@ -54,6 +54,7 @@ public class LoginActivity extends BaseActivity {
      String email;
      String phone ;
      String url;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,10 +121,15 @@ public class LoginActivity extends BaseActivity {
                     SweetAlertDialog pDialog = new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE);
                     pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
                     pDialog.setTitleText("Fields Are Required..!!");
+
+
                     pDialog.setCancelable(true);
                     pDialog.show();
                     return;
-                } else if (email.equals("")) {
+                }
+
+
+                else if (email.equals("")) {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -169,6 +175,26 @@ public class LoginActivity extends BaseActivity {
                 }
 
 
+                else if (!email.matches(emailPattern) && email.length() >0)
+                {
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            Utilss.hideSweetLoader(pDialog);
+                        }
+                    });
+
+                    SweetAlertDialog pDialog = new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE);
+                    pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+                    pDialog.setTitleText("Wrong Email Format..");
+                    pDialog.setCancelable(true);
+                    pDialog.show();
+                    return;
+
+                }
+
                 else
                 {
                     RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
@@ -180,68 +206,85 @@ public class LoginActivity extends BaseActivity {
                                 @Override
                                 public void onResponse(String response)
                                 {
-//                                    Log.d("Login1111",response);
-//                                    Toast.makeText(LoginActivity.this, "Credentials Are Right", Toast.LENGTH_SHORT).show();
 
                                     Log.d("Json-response1", response);
-                                    try {
 
+                                    try
+                                    {
                                         JSONObject jsonObject = new JSONObject(response);
-                                        JSONObject jsonObject3 = jsonObject.getJSONObject("user");
-                                        id_user = jsonObject3.getString("id");
-                                        String token_value = jsonObject.getString("token");
-                                        String names = jsonObject3.getString("name");
-                                        String role = jsonObject3.getString("role");
-                                        Log.d("Role_Mine" , role);
 
-
-                                        if (role.equals("admin"))
+                                        if (jsonObject.has("Error"))
                                         {
-                                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                                            editor.putString("email", email);
-                                            editor.putString("name", names);
-                                            editor.putString("phone", phone);
-                                            editor.putString("token", token_value);
-                                            editor.putString("user_id", id_user);
-                                            editor.putString("role", role);
-                                            editor.apply();
-                                            startActivity(new Intent(LoginActivity.this , Admin_Home_Activity.class ));
-                                            finish();
+                                            runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
 
-
-
+                                                    Utilss.hideSweetLoader(pDialog);
+                                                    SweetAlertDialog pDialog = new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE);
+                                                    pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+                                                    pDialog.setTitleText("Incorrect Email");
+                                                    pDialog.setCancelable(true);
+                                                    pDialog.show();
+                                                    return;
+                                                }
+                                            });
                                         }
 
-                                        else if (role.equals("user"))
+                                        else
                                         {
-                                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                                            editor.putString("email", email);
-                                            editor.putString("name", names);
-                                            editor.putString("phone", phone);
-                                            editor.putString("token", token_value);
-                                            editor.putString("user_id", id_user);
-                                            editor.putString("role", role);
-                                            editor.apply();
+                                            JSONObject jsonObject3 = jsonObject.getJSONObject("user");
+                                            id_user = jsonObject3.getString("id");
 
-                                            startActivity(new Intent(LoginActivity.this ,HomeActivity.class ));
-                                            finish();
+                                                String token_value = jsonObject.getString("token");
+                                                String names = jsonObject3.getString("name");
+                                                String role = jsonObject3.getString("role");
+                                                Log.d("Role_Mine" , role);
+
+                                                if (role.equals("admin"))
+                                                {
+                                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                    editor.putString("email", email);
+                                                    editor.putString("name", names);
+                                                    editor.putString("phone", phone);
+                                                    editor.putString("token", token_value);
+                                                    editor.putString("user_id", id_user);
+                                                    editor.putString("role", role);
+                                                    editor.apply();
+                                                    startActivity(new Intent(LoginActivity.this , Admin_Home_Activity.class ));
+                                                    finish();
 
 
+                                                }
 
-                                        }
+                                                else if (role.equals("user"))
+                                                {
+                                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                    editor.putString("email", email);
+                                                    editor.putString("name", names);
+                                                    editor.putString("phone", phone);
+                                                    editor.putString("token", token_value);
+                                                    editor.putString("user_id", id_user);
+                                                    editor.putString("role", role);
+                                                    editor.apply();
 
+                                                    startActivity(new Intent(LoginActivity.this ,HomeActivity.class ));
+                                                    finish();
+                                                }
 
+                                                runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
 
-                                        runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-
-                                                Utilss.hideSweetLoader(pDialog);
+                                                        Utilss.hideSweetLoader(pDialog);
+                                                    }
+                                                });
                                             }
-                                        });
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
+                                    }
 
+                                    catch (JSONException e)
+                                    {
+                                        Log.d("Jsonexception" , e.toString());
+                                        e.printStackTrace();
                                     }
                                 }
 
@@ -251,8 +294,6 @@ public class LoginActivity extends BaseActivity {
                                 @Override
                                 public void onErrorResponse(VolleyError error)
                                 {
-
-
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
@@ -282,7 +323,6 @@ public class LoginActivity extends BaseActivity {
                     ) {
                         @Override
                         protected Map<String,String>getParams(){
-
                             Map<String,String> params = new HashMap<String, String>();
                             params.put("email",email);
                             params.put("password",phone);

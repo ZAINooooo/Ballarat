@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_width="match_parent"
+    android:background="@drawable/background_about"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -110,4 +117,31 @@ android:layout_marginTop="10dp"
 
 
 
+
+
+
+
+
+
+
+
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/calculate_btn232"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/calculate_btn23"-->
+        <!--android:fontFamily="@font/latonormal"-->
+        <!--android:lineSpacingMultiplier="1.0"-->
+        <!--android:justificationMode="inter_word"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_margin="20dp"-->
+        <!--android:textColor="#000000"-->
+        <!--android:text="This is the name used to describe the place where the service Dual Diagnosis Australia rests. The initial service commenced operation in 2008 using the name Rod Soar and following a slow progression and the gaining of a strong supporter base and references the various arms of this organisation commenced to evolve."-->
+
+        <!--android:textSize="19dp" />-->
+
+
 </RelativeLayout>
+</ScrollView>

@@ -55,24 +55,40 @@
     <!--Overlay Layout-->
 
 
+
+    <!--<ScrollView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:scrollbars="none"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/bottommargin"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/rightmargin"-->
+        <!--app:layout_constraintStart_toStartOf="@+id/leftmargin"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/linearLayout"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:layout_marginEnd="16dp"-->
+        <!--android:layout_marginRight="16dp"-->
+        <!--app:layout_constraintVertical_bias="0.0"-->
+        <!--android:layout_height="0dp">-->
+
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/rounded_corner_rect_white"
+        android:elevation="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottommargin"
+        app:layout_constraintEnd_toStartOf="@+id/rightmargin"
+        app:layout_constraintStart_toStartOf="@+id/leftmargin"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="150dp"
-        android:background="@drawable/rounded_corner_rect_white"
-        android:elevation="14dp"
+        android:layout_marginBottom="200dp"
         android:orientation="vertical"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottommargin"
-        app:layout_constraintEnd_toStartOf="@+id/rightmargin"
-        app:layout_constraintStart_toStartOf="@+id/leftmargin"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.0">
+        >
 
         <TextView
             android:layout_width="match_parent"
@@ -89,7 +105,7 @@
             android:id="@+id/email_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="13dp"
+            android:layout_margin="10dp"
             android:hint="Email"
             android:textColorHint="#000000" />
 
@@ -97,7 +113,7 @@
             android:id="@+id/phone_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="13dp"
+            android:layout_margin="10dp"
             android:hint="Password"
             android:inputType="textPassword"
             android:textColorHint="#000000" />
@@ -106,15 +122,21 @@
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="13dp"
+            android:layout_margin="10dp"
             android:background="@drawable/login"
-            android:padding="13dp"
             android:fontFamily="@font/myriad"
             android:textColor="#FFFFFF"
             android:textSize="20dp"
             android:text="LOGIN"
             android:textAllCaps="true" />
+
+
+
     </LinearLayout>
+    <!--</ScrollView>-->
+
+
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottommargin"
@@ -122,9 +144,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.93" />
-
-
-
 
     <TextView
         android:id="@+id/forgot_password"
@@ -138,7 +157,6 @@
         app:layout_constraintStart_toStartOf="@+id/leftmargin"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.78" />
-
 
 
     <TextView
